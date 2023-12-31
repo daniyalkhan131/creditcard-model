@@ -81,15 +81,15 @@ def main():
     # params_file = home_dir.as_posix() + '/params.yaml'
     # params = yaml.safe_load(open(params_file))["train_model"]
 
-    #model_file = sys.argv[1]
+    model_file = sys.argv[1]
     # Load the model.
-    #model = joblib.load(model_file)
-    model = joblib.load('models/model.joblib')
+    model = joblib.load(model_file)
+    #model = joblib.load('models/model.joblib')
     
     # Load the data.
-    #input_file = sys.argv[2]
-    #data_path = home_dir.as_posix() + input_file
-    data_path = home_dir.as_posix()+'/data/processed'
+    input_file = sys.argv[2]
+    data_path = home_dir.as_posix() + input_file
+    #data_path = home_dir.as_posix()+'/data/processed'
     output_path = home_dir.as_posix() + '/dvclive'
     pathlib.Path(output_path).mkdir(parents=True, exist_ok=True)
     
