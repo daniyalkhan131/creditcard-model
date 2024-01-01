@@ -1,0 +1,4 @@
+[core]
+    remote = creditcard-data-remote
+['remote "creditcard-data-remote"']
+    url = ../tmp
