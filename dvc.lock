@@ -5,29 +5,29 @@ stages:
     deps:
     - path: ./data/raw/creditcard.csv
       hash: md5
-      md5: 1eede4ff545d4505019548c49ecd3003
-      size: 150827699
+      md5: f24d3d4276c826687b6c7b5ef11069a7
+      size: 150827167
     - path: src/data/make_dataset.py
       hash: md5
       md5: 38e54d272775073ae330db7fc45eb9ae
       size: 1742
     params:
       params.yaml:
-        make_dataset.seed: 2023
-        make_dataset.test_split: 0.2
+        make_dataset.seed: 42
+        make_dataset.test_split: 0.3
     outs:
     - path: data/processed/
       hash: md5
-      md5: 78bd6de40a95e537ced407d8ceb57ec1.dir
-      size: 150816663
+      md5: c9cadf83941080517d7b6ab40fb88e47.dir
+      size: 150816131
       nfiles: 2
   train_model:
     cmd: python ./src/models/train_model.py ./data/processed/
     deps:
     - path: ./data/processed/
       hash: md5
-      md5: 78bd6de40a95e537ced407d8ceb57ec1.dir
-      size: 150816663
+      md5: c9cadf83941080517d7b6ab40fb88e47.dir
+      size: 150816131
       nfiles: 2
     - path: ./src/models/train_model.py
       hash: md5
@@ -35,27 +35,27 @@ stages:
       size: 1499
     params:
       params.yaml:
-        train_model.max_depth: 8
-        train_model.n_estimators: 3
+        train_model.max_depth: 10
+        train_model.n_estimators: 10
         train_model.seed: 21
     outs:
     - path: ./models/
       hash: md5
-      md5: 285b680119f747d7d3677a126fd63448.dir
-      size: 23081
+      md5: aa0c027218cc43186c6e92e8a23f54b3.dir
+      size: 107289
       nfiles: 1
   visualize:
     cmd: python ./src/visualization/visualize.py ./models/model.joblib ./data/processed/
     deps:
     - path: ./data/processed/
       hash: md5
-      md5: 78bd6de40a95e537ced407d8ceb57ec1.dir
-      size: 150816663
+      md5: c9cadf83941080517d7b6ab40fb88e47.dir
+      size: 150816131
       nfiles: 2
     - path: ./models/model.joblib
       hash: md5
-      md5: c10bb5251563e2709b97190d250e83b5
-      size: 23081
+      md5: edc405ee7e71bc0612f761f0e7cea5f6
+      size: 107289
     - path: ./src/visualization/visualize.py
       hash: md5
       md5: ff03ab5dd2acda72b0fdc2a330719aff
@@ -63,6 +63,6 @@ stages:
     outs:
     - path: dvclive
       hash: md5
-      md5: 063e120f9de70dfe3439490a74c25661.dir
-      size: 17433624
+      md5: 77b227fadabef241e5853a64c3240a34.dir
+      size: 17869902
       nfiles: 8

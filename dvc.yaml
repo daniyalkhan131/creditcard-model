@@ -1,19 +1,19 @@
 stages:
   make_dataset: #we can put any name here but we choose to put our file name
-    cmd: python src/data/make_dataset.py ./data/raw/creditcard.csv
+    cmd: python ./src/data/make_dataset.py ./data/raw/creditcard.csv
     #this is the command and next is parameter that should be given to it
     #it is sys.arg[1]
     #sys.arg[0] is first after python word
 
     deps:
     - ./data/raw/creditcard.csv
-    - src/data/make_dataset.py
+    - ./src/data/make_dataset.py
     #these are dependencies like py file and dataset
     params:
     - make_dataset.test_split
     - make_dataset.seed
     outs:
-    - data/processed/
+    - ./data/processed/
   train_model:
     cmd: python ./src/models/train_model.py ./data/processed/
     deps:
