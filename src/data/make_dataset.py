@@ -34,8 +34,8 @@ def main():
 
     input_file = sys.argv[1] #we dont want to hardcode things so we take argument
     #of data file name, but this we can hardcode as having only one file
-    data_path = home_dir.as_posix() + input_file #making path to data that is in raw
-    #data_path = home_dir.as_posix() + '/data/raw/creditcard.csv'
+    #data_path = home_dir.as_posix() + input_file #making path to data that is in raw
+    data_path = home_dir.as_posix() + '/data/raw/creditcard.csv'
     
     output_path = home_dir.as_posix() + '/data/processed'
     

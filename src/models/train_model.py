@@ -26,9 +26,9 @@ def main():
     params = yaml.safe_load(open(params_file))["train_model"]
 
     input_file = sys.argv[1]
-    data_path = home_dir.as_posix() + input_file #now in this input will be from
+    #data_path = home_dir.as_posix() + input_file #now in this input will be from
     #processed data
-    #data_path = home_dir.as_posix()+'/data/processed'
+    data_path = home_dir.as_posix()+'/data/processed'
 
     output_path = home_dir.as_posix() + '/models'
     pathlib.Path(output_path).mkdir(parents=True, exist_ok=True) #if directory not 
