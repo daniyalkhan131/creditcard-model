@@ -3,5 +3,5 @@ make_dataset:
   seed: 2023
 train_model:
   seed: 21
-  n_estimators: 50
+  n_estimators: 3
   max_depth: 8
